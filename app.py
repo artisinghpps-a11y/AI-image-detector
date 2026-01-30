@@ -10,7 +10,7 @@ st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;700&display=swap');
 
-    /* AGGRESSIVE BRANDING REMOVAL */
+    /* THE AGGRESSIVE VANISH PROTOCOL - HIDES ALL BRANDING */
     #MainMenu {visibility: hidden !important;}
     header {visibility: hidden !important;}
     footer {visibility: hidden !important;}
@@ -18,10 +18,12 @@ st.markdown("""
     #stDecoration {display: none !important;}
     [data-testid="stHeader"] {display: none !important;}
     [data-testid="stToolbar"] {display: none !important;}
-
-    /* REMOVES EXTRA TOP PADDING FOR FULLSCREEN LOOK */
+    [data-testid="stStatusWidget"] {display: none !important;}
+    
+    /* REMOVES WHITE SPACE AT TOP FOR TRUE FULLSCREEN */
     .block-container {
-        padding-top: 1rem !important;
+        padding-top: 0rem !important;
+        margin-top: -2rem !important;
     }
 
     /* Premium Obsidian Flow Background */
