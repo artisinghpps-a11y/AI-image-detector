@@ -10,36 +10,45 @@ st.markdown(f"""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;700&display=swap');
 
-    .stApp {{
+    /* HIDES THE GITHUB ID, TOOLBAR, AND FOOTER */
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    
+    /* REMOVES EXTRA TOP PADDING */
+    .block-container {
+        padding-top: 2rem;
+    }
+
+    /* Premium Obsidian Flow Background */
+    .stApp {
         background: linear-gradient(135deg, #020205 0%, #080a1a 50%, #020205 100%);
         background-size: 400% 400%;
         animation: obsidianFlow 12s ease infinite;
         color: #f0f0f0;
         font-family: 'JetBrains Mono', monospace;
-    }}
-    @keyframes obsidianFlow {{
-        0% {{ background-position: 0% 50%; }}
-        50% {{ background-position: 100% 50%; }}
-        100% {{ background-position: 0% 50%; }}
-    }}
+    }
+    @keyframes obsidianFlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
 
-    header {{visibility: hidden;}}
-    
-    .logo-container {{
+    .logo-container {
         text-align: left;
         padding-bottom: 15px;
         border-bottom: 1px solid rgba(0, 210, 255, 0.2);
         margin-bottom: 25px;
-    }}
-    .logo-text {{
+    }
+    .logo-text {
         font-weight: 700;
         font-size: 1.5rem;
         letter-spacing: 4px;
         color: #00d2ff;
         text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
-    }}
+    }
 
-    .hud-card {{
+    .hud-card {
         background: rgba(10, 15, 30, 0.85);
         border: 1px solid rgba(0, 210, 255, 0.3);
         border-radius: 4px;
@@ -47,18 +56,18 @@ st.markdown(f"""
         position: relative;
         box-shadow: inset 0 0 20px rgba(0, 210, 255, 0.1);
         margin-top: 20px;
-    }}
+    }
     
-    .hud-card::after {{
+    .hud-card::after {
         content: "";
         position: absolute;
         top: 0; left: 0; width: 100%; height: 2px;
         background: rgba(0, 210, 255, 0.4);
         animation: scanline 3s linear infinite;
-    }}
-    @keyframes scanline {{ 0% {{ top: 0%; }} 100% {{ top: 100%; }} }}
+    }
+    @keyframes scanline { 0% { top: 0%; } 100% { top: 100%; } }
 
-    .status-badge {{
+    .status-badge {
         padding: 4px 10px;
         border-radius: 2px;
         font-size: 0.6rem;
@@ -67,9 +76,9 @@ st.markdown(f"""
         background: rgba(0, 210, 255, 0.1);
         border: 1px solid #00d2ff;
         color: #00d2ff;
-    }}
+    }
 
-    [data-testid="stImage"] img {{
+    [data-testid="stImage"] img {
         max-height: 65vh !important;
         width: auto !important;
         border: 1px solid rgba(0, 210, 255, 0.2);
@@ -78,9 +87,9 @@ st.markdown(f"""
         display: block;
         margin-left: auto;
         margin-right: auto;
-    }}
+    }
 
-    .stButton > button {{
+    .stButton > button {
         width: 100%;
         background: transparent;
         color: #00d2ff !important;
@@ -91,12 +100,12 @@ st.markdown(f"""
         transition: 0.3s;
         margin-top: 10px;
         height: 3em;
-    }}
-    .stButton > button:hover {{
+    }
+    .stButton > button:hover {
         background: #00d2ff !important;
         color: black !important;
         box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
-    }}
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -108,7 +117,6 @@ SYS_CFG = {
 
 def sys_probe(fb):
     try:
-        # SECURELY RETRIEVE FROM STREAMLIT DASHBOARD
         user_id = st.secrets["SIGHTENGINE_USER"]
         api_secret = st.secrets["SIGHTENGINE_SECRET"]
         
