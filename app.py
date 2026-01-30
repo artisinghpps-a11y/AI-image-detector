@@ -15,6 +15,14 @@ st.markdown("""
     header {visibility: hidden;}
     footer {visibility: hidden;}
     
+    /* HIDES THE MOBILE FLOATING BUTTON (AVATAR & LOGO) */
+    .stDeployButton {
+        display: none !important;
+    }
+    #stDecoration {
+        display: none !important;
+    }
+
     /* REMOVES EXTRA TOP PADDING */
     .block-container {
         padding-top: 2rem;
@@ -204,4 +212,3 @@ with col_main:
                 NO_FEED_DETECTED
             </div>
         """, unsafe_allow_html=True)
-
