@@ -134,7 +134,7 @@ def sys_probe(fb):
         
         _res = _conn.check('genai').set_bytes(fb)
         if _res['status'] == 'success':
-            return _res['type']['ai_generated'], "NEURAL_CLOUD_V4"
+            return _res['type']['ai_generated'], "ANALYZING_CORE_V4"
     except Exception as e:
         st.error(f"Security Protocol Error: Check Secrets Configuration.")
     return None, None
@@ -167,7 +167,7 @@ with col_side:
             
         if st.session_state['run_analysis']:
             file_bytes = input_file.getvalue()
-            with st.spinner("QUERYING CLOUD NEURAL ENGINE..."):
+            with st.spinner("QUERYING PROCESSING NEURAL ENGINE..."):
                 ai_prob, engine_label = sys_probe(file_bytes)
 
                 if ai_prob is not None:
